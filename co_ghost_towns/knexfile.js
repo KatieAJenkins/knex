@@ -1,7 +1,8 @@
+'use strict';
+
 module.exports = {
   development: {
-    client: 'PG',
-    connection: ''
-
+    client: 'pg',
+    connection: 'postgres://localhost/co_ghost_towns'
   }
-}
+};
