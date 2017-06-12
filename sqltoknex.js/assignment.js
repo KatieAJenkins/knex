@@ -16,12 +16,12 @@ knex('students')
 SELECT COUNT(*) students;
 
 knex('students')
-  .count()
+  .count();
 
 SELECT MAX('gpa') FROM students;
 
 knex('students')
-  .max('gpa')
+  .max('gpa');
 
 SELECT * FROM students WHERE name IS NOT NULL;
 
@@ -58,6 +58,8 @@ knex('students')
     fav_color: 'blue'
   }, '*');
 
+  //or add .returning('*'); on instead of '*'
+
 UPDATE students SET name = 'Cho' WHERE id = 5;
 
 knex('students')
@@ -66,10 +68,12 @@ knex('students')
   })
   .where ('id' , 5);
 
+  //or can use .update('name', 'Cho'); instead of object
+
 DELETE FROM students WHERE gpa = 0;
 
 knex('students')
-  .delete ()
+  .del()
   .where('gpa', 0);
 
 UPDATE students SET gpa = gpa + 1 WHERE id = 4;
@@ -80,9 +84,12 @@ knex('students')
   })
   .where ('id' , 4);
 
+  //OR .increment('gpa', 1); instead of current update
+
 SELECT * FROM students INNER JOIN homeworks ON homeworks.student_id = students.id;
 
-knex.from('students').innerJoin('homeworks', 'homeworks.student_id = student.id');
+knex('students')
+  .innerJoin('homeworks', 'homeworks.student_id', 'student.id');
 
 SELECT DISTINCT students.name, homework.title, grades.score
 FROM students
