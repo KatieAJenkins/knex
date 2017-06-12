@@ -1,12 +1,15 @@
+'use strict';
+
 SELECT * FROM students WHERE id = 1;
 
 knex('students')
-  .select('id' , 1);
+  .select()
+  .where('id', 1);
 
 SELECT * FROM students WHERE gpa = 3 LIMIT 1;
 
 knex('students')
-  .select('id' , 1)
+  .select()
   .where ('gpa', 3)
   .limit(1);
 
