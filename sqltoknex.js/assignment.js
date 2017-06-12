@@ -99,6 +99,6 @@ WHERE grades.score > 3;
 
 knex('students')
   .distinct ('students.name' , 'homework.title' ,'grades.score')
-  .innerJoin ('homeworks' , 'homeworks.student_id = students_id')
-  .innerJoin('grades', 'grades.id = homeworks.grade_id')
+  .innerJoin ('homeworks' , 'homeworks.student_id', 'students_id')
+  .innerJoin('grades', 'grades.id', 'homeworks.grade_id')
   .where ('grades.score' , '>' , 3);
