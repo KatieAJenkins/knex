@@ -36,6 +36,9 @@ knex('students')
   .whereIn('id', [1,2,3])
   .orWhereIn('gpa', [3,4]);
 
+  //OR
+  // .where('id', 'in', [1,2,3])
+  // .orWhere('gpa', 'in', [3,4]);
 
 SELECT * FROM students LIMIT 10 OFFSET 30;
 
@@ -71,7 +74,7 @@ knex('students')
   })
   .where ('id' , 5);
 
-  //or can use .update('name', 'Cho'); instead of object
+  //OR .update('name', 'Cho');
 
 DELETE FROM students WHERE gpa = 0;
 
@@ -87,7 +90,9 @@ knex('students')
   })
   .where ('id' , 4);
 
-  //OR .increment('gpa', 1); instead of current update
+  //OR .increment('gpa', 1);
+  //OR .update('gpa','gpa+1')
+  //OR .update('gpa','gpa'+1)
 
 SELECT * FROM students INNER JOIN homeworks ON homeworks.student_id = students.id;
 
