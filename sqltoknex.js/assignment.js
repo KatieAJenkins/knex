@@ -60,7 +60,8 @@ knex('students')
     fav_color: 'blue'
   }, '*');
 
-  //or add .returning('*'); on instead of '*'
+  //OR .returning('*');
+  //OR .returning(['name', 'fav_color'])
 
 UPDATE students SET name = 'Cho' WHERE id = 5;
 
